@@ -14,6 +14,11 @@ class Dashboard extends Component {
         super(props, context);
     }
 
+    /**
+     * API Call to get the data from Server.
+     * Here we are using Mockable.io
+     */
+
     componentDidMount() {
         api.getAllItems()
             .then((response) => {
@@ -46,6 +51,7 @@ class Dashboard extends Component {
 }
 
 //  Set the actions which will prompt the reducers to check for matching types
+
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         loadFoodItems: actions.loadFoodItems,

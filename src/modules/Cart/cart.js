@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as actions from './action';
 
 const initialstate = {
     checkoutAlert: false
 };
+
 class Cart extends Component {
 
     constructor(props, context) {
@@ -18,13 +19,13 @@ class Cart extends Component {
             checkoutAlert: true
         });
         this.props.checkoutCurrentOrder();
-    }
+    };
 
     removeItemFromCart = (idx) => {
         let arr = [...this.props.selectedItems];
         arr.splice(idx, 1);
         this.props.removeItemFromCart(arr);
-    }
+    };
 
     render() {
         let total = 0.0;
@@ -33,7 +34,7 @@ class Cart extends Component {
             return (
                 <tr key={index}>
                     <td>
-                        <span className="btn-remove" onClick={e => this.removeItemFromCart(index)} >{'x'}</span>
+                        <span className="btn-remove" onClick={e => this.removeItemFromCart(index)}>{'x'}</span>
                     </td>
                     <td>
                         {item.name}
@@ -58,13 +59,13 @@ class Cart extends Component {
                         <div className="card-title">
                             {'ORDER SUMMARY'}
                         </div>
-                        <br />
+                        <br/>
                         <table className="table table-striped">
                             <tbody>
-                               {summaryJsx}
+                            {summaryJsx}
                             </tbody>
                         </table>
-                        <br />
+                        <br/>
                         <div className="cart-total">
                             {'Total: ₹' + total}
                         </div>
@@ -78,7 +79,8 @@ class Cart extends Component {
                         </div>
                         <button onClick={e => this.setState({
                             checkoutAlert: false
-                        })}>PLACE NEW ORDER</button>
+                        })}>PLACE NEW ORDER
+                        </button>
                     </div>
                 )}
             </div>

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as actions from '../Cart/action';
 import MenuItem from './menuItem';
 
@@ -14,7 +14,7 @@ class MenuItemList extends Component {
         const arr = [...this.props.selectedItems];
         arr.push(data);
         this.props.addItemToSelection(arr);
-    }
+    };
 
     render() {
         let menuItemMarkup = this.props.filteredItems && this.props.filteredItems.map((menu, index) => {
