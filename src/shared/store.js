@@ -1,5 +1,5 @@
-import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
-import { createLogger } from 'redux-logger';
+import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
+import {createLogger} from 'redux-logger';
 import DashboardReducer from '../modules/Dashboard/reducer';
 import CartReducer from '../modules/Cart/reducer';
 
@@ -11,11 +11,11 @@ const rootReducer = combineReducers({
 const initialState = {};
 const enhancers = [];
 const middleware = [
-    createLogger({ collapsed: true })
+    createLogger({collapsed: true})
 ];
 
 if (process.env.NODE_ENV === 'development') {
-    const devToolsExtension = window.devToolsExtension
+    const devToolsExtension = window.devToolsExtension;
 
     if (typeof devToolsExtension === 'function') {
         enhancers.push(devToolsExtension())
@@ -25,12 +25,12 @@ if (process.env.NODE_ENV === 'development') {
 const composedEnhancers = compose(
     applyMiddleware(...middleware),
     ...enhancers
-)
+);
 
 const store = createStore(
     rootReducer,
     initialState,
     composedEnhancers
-)
+);
 
 export default store;

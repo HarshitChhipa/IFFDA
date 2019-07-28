@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import store from "./shared/store";
 import Routes from "./shared/routes";
+import './assets/App.css';
+import './assets/cards.css';
 
 window._app_container = document.getElementById('root');
 

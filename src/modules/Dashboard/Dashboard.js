@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as api from '../../shared/api.js';
 import * as actions from './action.js';
 import * as filterActions from '../Filters/action';
 import MenuItemList from '../Menu/menuItemList';
 import Cart from '../Cart/cart';
 import Filters from "../Filters/filterManager";
+
 class Dashboard extends Component {
 
     constructor(props, context) {
@@ -15,29 +16,29 @@ class Dashboard extends Component {
 
     componentDidMount() {
         api.getAllItems()
-        .then((response) => {
-            const items = response.data;
-            this.props.loadFoodItems(items.menu);
-            this.props.filterMenu(items.menu);
-        })
-        .catch(error => {
-            console.log(error);
-            this.props.loadFoodItems([]);
-            this.props.filterMenu([]);
-        });
+            .then((response) => {
+                const items = response.data;
+                this.props.loadFoodItems(items.menu);
+                this.props.filterMenu(items.menu);
+            })
+            .catch(error => {
+                console.log(error);
+                this.props.loadFoodItems([]);
+                this.props.filterMenu([]);
+            });
     }
 
     render() {
         return (
             <div style={{display: 'inline-block'}}>
                 <div className="col col-md-12 col-xs-12 filter-container">
-                    <Filters />
+                    <Filters/>
                 </div>
-                <div className="col col-md-9 col-xs-8 menu-container">
-                    <MenuItemList />
+                <div className="col col-md-9 col-8 menu-container">
+                    <MenuItemList/>
                 </div>
                 <div className="col col-md-3 col-xs-4 summary-container">
-                    <Cart />
+                    <Cart/>
                 </div>
             </div>
         );
